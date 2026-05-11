@@ -11,16 +11,21 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
   <!-- Animated background -->
-  <div class="bg-grid"></div>
+  <canvas id="particleCanvas"></canvas>
   <div class="bg-gradient"></div>
 
   <!-- Navigation -->
   <nav class="nav" id="nav">
     <div class="nav-container">
       <a href="#home" class="nav-logo">
-        <span class="logo-mark">KS</span>
-        <span class="logo-dot"></span>
+        <div class="logo-mark">
+          <span class="logo-k">K</span><span class="logo-s">S</span>
+        </div>
       </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
@@ -46,7 +51,8 @@
             Available for SWE Internship — May 2026
           </div>
           <h1 class="hero-title">
-            Hi, I'm <span class="gradient-text">Karthick Subramanian</span>.<br>
+            <span class="outline-name">Karthick</span>
+            <span class="hero-typewriter"><span id="typewriterText"></span><span class="tw-cursor">|</span></span>
             I build, break, and <span class="underline-text">automate</span> software.
           </h1>
           <p class="hero-subtitle">
@@ -264,13 +270,13 @@
       <div class="projects-grid">
         <article class="project-card featured">
           <div class="project-visual">
-            <div class="project-icon">🧠</div>
+            <div class="project-icon">🧠🎶</div>
             <div class="project-shine"></div>
           </div>
           <div class="project-body">
             <div class="project-meta">
               <span class="project-tag-pill">Featured</span>
-              <span class="project-year">2025</span>
+              <span class="project-year">2026</span>
             </div>
             <h3>MindTune-OS</h3>
             <p>An EEG-based agentic AI system using OAuth 2.0 and Groq, achieving <strong>92.94% mental state classification accuracy</strong> with TinyML deployed on Arduino.</p>
@@ -292,7 +298,7 @@
           <div class="project-body">
             <div class="project-meta">
               <span class="project-tag-pill">Research</span>
-              <span class="project-year">2025</span>
+              <span class="project-year">2026</span>
             </div>
             <h3>Neuro-Symbolic XAI Pipeline</h3>
             <p>An explainable medical image diagnosis system integrating CNNs, symbolic rules, and SQLite-based prediction logging across chest & skin datasets.</p>
@@ -302,6 +308,10 @@
               <span>SQLite</span>
               <span>Python</span>
             </div>
+            <a href="https://huggingface.co/spaces/Karthickmk/neuro-symbolic-medical-ai" target="_blank" rel="noopener" class="project-link">
+              Visit Live Site
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+            </a>
           </div>
         </article>
 
@@ -313,7 +323,7 @@
           <div class="project-body">
             <div class="project-meta">
               <span class="project-tag-pill">Live</span>
-              <span class="project-year">2025</span>
+              <span class="project-year">2026</span>
             </div>
             <h3>Irish Culture Chat</h3>
             <p>A React.js AI chatbot with interactive Maps API integration, delivering personalised cultural and heritage insights about Ireland.</p>
