@@ -8,15 +8,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// Mobile menu toggle
-const navToggle = document.querySelector('.nav-toggle');
-const navLinks = document.querySelector('.nav-links');
-if (navToggle) {
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
-}
-
 // Reveal on scroll
 const revealTargets = document.querySelectorAll(
   '.section-head, .about-text, .info-card, .timeline-item, .project-card, .skill-block, .cert-block, .edu-card, .contact-card, .hero-content, .profile-card'
@@ -107,7 +98,7 @@ function createParticle() {
     dx: (Math.random() - 0.5) * 0.4,
     dy: (Math.random() - 0.5) * 0.4,
     alpha: Math.random() * 0.6 + 0.1,
-    color: Math.random() > 0.5 ? '99,102,241' : '16,185,129'
+    color: Math.random() > 0.5 ? '34,197,94' : '34,211,238'
   };
 }
 
@@ -174,10 +165,34 @@ spotlightCards.forEach(card => {
     const x = e.clientX - r.left;
     const y = e.clientY - r.top;
     card.style.background =
-      `radial-gradient(300px circle at ${x}px ${y}px, rgba(99,102,241,0.13) 0%, transparent 70%),
+      `radial-gradient(300px circle at ${x}px ${y}px, rgba(34,197,94,0.13) 0%, transparent 70%),
        var(--surface)`;
   });
   card.addEventListener('mouseleave', () => {
     card.style.background = '';
   });
 });
+
+// ── Contact Form (mailto) ───────────────────────
+const contactForm = document.getElementById('contactForm');
+
+if (contactForm) {
+  const cfStatus = document.getElementById('cfStatus');
+
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const name = document.getElementById('cf-name').value.trim();
+    const email = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value.trim() || 'Portfolio contact';
+    const message = document.getElementById('cf-message').value.trim();
+
+    const mailSubject = encodeURIComponent(`${subject} — from ${name}`);
+    const mailBody = encodeURIComponent(`${message}\n\n—\n${name}\n${email}`);
+
+    window.location.href =
+      `mailto:karthicksubramanian2001@gmail.com?subject=${mailSubject}&body=${mailBody}`;
+
+    cfStatus.textContent = 'Opening your email app…';
+  });
+}
